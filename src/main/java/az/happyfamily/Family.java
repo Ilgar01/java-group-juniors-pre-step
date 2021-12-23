@@ -1,9 +1,11 @@
-package happyfamily;
+package az.happyfamily;
 
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.Random;
 
-public class Family {
+public class
+Family {
     private  Human mother;
     private Human father;
     private Human[] children;
@@ -89,6 +91,31 @@ public class Family {
      public int countFamily(){
         return 2+getChildren().length;
      }
+    public void greetPet(){
+
+        System.out.printf("Hello, %s",getPet().getNickname());
+
+    }
+
+    public void describePet(){
+        System.out.printf("I have a %s, he is %d years old, he is %s%n",getPet().getSpecies(),
+                getPet().getAge(),(getPet().getTrickLevel() < 51) ?
+                        ("Almost not sly") : ("Very sly"));
+
+    }
+    public boolean feedPet(boolean feedTime){
+        boolean result;
+        Random random= new Random();
+        if(!feedTime & random.nextInt(100)>getPet().getTrickLevel()){
+            System.out.printf("I think %s is not hungry%n",getPet().getNickname());
+            result = false;
+        }else
+        {
+            System.out.printf("Hm... I will feed %s%n",getPet().getNickname());
+            result = true;
+        }
+        return result;
+    }
 
 
     @Override

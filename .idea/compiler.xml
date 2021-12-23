@@ -7,9 +7,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="java-group-juniors-pre-step-git" />
+        <module name="java-group-juniors-pre-step" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="java-group-juniors-pre-step" target="8" />
       <module name="java-group-juniors-pre-step-git" target="8" />
     </bytecodeTargetLevel>
   </component>

@@ -1,9 +1,8 @@
-package happyfamily;
+package az.happyfamily;
 
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Objects;
-import java.util.Random;
 
 public class Human {
    private String name;
@@ -11,7 +10,7 @@ public class Human {
    private int year;
    private int iq;
    private String[][] schedule;
-   private Family family;
+
     static{
         System.out.println("Human class is being loaded");
     }
@@ -84,39 +83,6 @@ public class Human {
             this.schedule = schedule;
 
     }
-    public Family getFamily() {
-        return family;
-    }
-
-    public void setFamily(Family family) {
-        this.family = family;
-    }
-
-    public void greetPet(){
-
-       System.out.printf("Hello, %s",getFamily().getPet().getNickname());
-
-    }
-
-    public void describePet(){
-           System.out.printf("I have a %s, he is %d years old, he is %s%n", getFamily().getPet().getSpecies(),
-                   getFamily().getPet().getAge(),((getFamily().getPet().getTrickLevel() < 51) ?
-                           ("Almost not sly") : ("Very sly")));
-
-    }
-     public boolean feedPet(boolean feedTime){
-       boolean result;
-         Random random= new Random();
-       if(!feedTime & random.nextInt(100)>getFamily().getPet().getTrickLevel()){
-           System.out.printf("I think %s is not hungry%n",getFamily().getPet().getNickname());
-           result = false;
-       }else
-       {
-           System.out.printf("Hm... I will feed %s%n", getFamily().getPet().getNickname());
-           result = true;
-       }
-       return result;
-     }
     @Override
     public String toString() {
         return String.format("Human{name=%s, surname=%s, year=%d, iq=%d, schedule=%s}%n",
@@ -134,11 +100,11 @@ public class Human {
         }
         Human human = (Human) obj;
         return human.getName().equals(getName()) & human.getSurname().equals(getSurname()) & human.getYear()==getYear()
-                & human.getIq()==getIq() & human.family.equals(family);
+                & human.getIq()==getIq();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getIq(),getName(),getSurname(),getFamily(),getYear());
+        return Objects.hash(getIq(),getName(),getSurname(),getYear());
     }
 }

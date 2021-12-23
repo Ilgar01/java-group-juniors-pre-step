@@ -1,4 +1,4 @@
-package happyfamily;
+package az.happyfamily;
 
 import java.util.Arrays;
 import java.util.Objects;
